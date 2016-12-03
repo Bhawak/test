@@ -12,6 +12,7 @@
  by David A. Mellis
  modified 9 Apr 2015
  by Bhawak Pokhrel
+ added motor control
  
  */
 
@@ -56,9 +57,8 @@ void setup() {
   pinMode(31,OUTPUT);
   digitalWrite(31,LOW);
   
-  while (!Serial) {
-    ; // wait for serial port to connect. Needed for Leonardo only
-  }
+  while (!Serial) 
+  {
 
 
   // start the Ethernet connection and the server:
@@ -66,7 +66,7 @@ void setup() {
   server.begin();
   Serial.print("server is at ");
   Serial.println(Ethernet.localIP());
-}
+ }
 
 
 void loop() {
@@ -98,7 +98,7 @@ void loop() {
         // if you've gotten to the end of the line (received a newline
         // character) and the line is blank, the http request has ended,
         // so you can send a reply
-        if (c == '\n' && currentLineIsBlank) {
+        //if (c == '\n' && currentLineIsBlank) {
           // send a standard http response header
 
           
